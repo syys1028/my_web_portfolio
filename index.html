@@ -6,7 +6,47 @@
     <link href="mycss.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+  <script>  // 방문 시간에 따라 방문한 초가 홀수면 배경색 blue, 짝수면 배경색 mint
+  	let current = new Date(); // 현재 시간 값을 가진 Date 객체 생성
+  	if(current.getSeconds() % 2 == 0)
+  		document.body.style.backgroundColor = "#AFEEEE";
 
+  	document.write("방문 시간 : ");
+  	document.write(current.getHours(), "시");
+  	document.write(current.getMinutes(), "분");
+  	document.write(current.getSeconds(), "초<br>");
+  </script>
+  <script>
+    function nightDayHandler(self){
+      var target1 = document.querySelector('body');
+      var target2 = document.querySelector('header');
+      var target3 = document.querySelector('ul');
+      var target4 = document.querySelector('nav');
+      var target5 = document.querySelector('section');
+      var target6 = document.querySelector('footer');
+      if(self.value === 'night'){
+        target1.style.backgroundColor = 'black';
+        target2.style.backgroundColor = '#474952';
+        target3.style.backgroundColor = '#747583';
+        target4.style.backgroundColor = '#343649';
+        target5.style.backgroundColor = '#212223';
+        target6.style.backgroundColor = '#555562';
+        target1.style.color = 'white';
+        self.value = 'day';
+      }
+      else{
+        target1.style.backgroundColor = '#D2E1FF';
+        target2.style.backgroundColor = '#f9fdff';
+        target3.style.backgroundColor = '#DCE2F0';
+        target4.style.backgroundColor = '#f0ffff';
+        target5.style.backgroundColor = '#FFFFFF';
+        target6.style.backgroundColor = '#DCE2F0';
+        target1.style.color = 'black';
+        self.value = 'night';
+      }
+    }
+  </script>
+  <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
 <header>
     <h1>PORTFOLIO</h1>
     <article>
@@ -28,23 +68,46 @@
 <nav>
 
     <h2>Contents</h2>
-    <ul>
-        <li><a href="#Programming"> Programming </a></li>
-        <li><a href="#Project"> Project </a></li>
-        <li><a href="#Certificate"> Certificate </a></li>
-        <li><a href="#Language Ability"> Language Ability </a></li>
-        <li><a href="#Club"> Club </a></li>
-        <li><a href="#International Activity"> International Activity </a></li>
-        <li><a href="#Self Introducti­on"> Self Introducti­on </a></li>
+    <ul class = "nav-container">
+        <li class="nav-item"><a href="#Programming"> Programming </a></li>
+        <li class="nav-item"><a href="#Project"> Project </a></li>
+        <li class="nav-item"><a href="#Certificate"> Certificate </a></li>
+        <li class="nav-item"><a href="#Language Ability"> Language Ability </a></li>
+        <li class="nav-item"><a href="#Club"> Club </a></li>
+        <li class="nav-item"><a href="#International Activity"> International Activity </a></li>
+        <li class="nav-item"><a href="#Self Introducti­on"> Self Introducti­on </a></li>
     </ul>
 </nav>
+<script>
+// 미리 로딩해 둘 8개의 이미지 파일 이름 배열
+let files = ["media/Penguins.png",                                // 사진넣기
+             "media/Lighthouse.png",
+             "media/Chrysanthemum.png",
+             "media/Desert.png",
+             "media/Hydrangeas.png",
+             "media/Jellyfish.png",
+             "media/Koala.png",
+             "media/Tulips.png"];
+let imgs = new Array(); // 이미지 객체를 저장할 배열
+for(let i=0; i<files.length; i++) {
+	imgs[i] = new Image(); // 이미지 객체 생성
+	imgs[i].src = files[i]; // 이미지 로딩 지시
+}
 
+let next = 1;
+function change(img) { // 다음 이미지 출력
+	img.src = imgs[next].src; // 이미지 변경
+	next++; // 다음 이미지에 대한 인덱스
+	next %= imgs.length; // 개수를 넘으면 처음으로
+}
+</script>
 <section>
     <article>
         <h2 id="Programming">
             <a target="_blank">프로그래밍 과목 소개(programming)</a>
         </h2>
-        <p align="center"> Python / C language / C++ / Java / HTML,CSS,JavaScript / Machine Learning / Window server / Cryptography </p>
+        <p align="center"> Language : Python / C / C++ / Java / HTML, CSS, JavaScript </p>
+        <p align="center"> Programming : Data Structure / Algorithm / Linux Ubuntu / AI (Machine Learning) / Window Server / Cryptography </p>
         <table>
             <tbody>
             <tr>
@@ -59,21 +122,24 @@
         <h2 id="Project">
             <a target="_blank">프로젝트 소개(Project)</a>
         </h2>
-        <table>
+        <table> // 이부분 지우기
             <tbody>
             <tr>
                 <td><img src="22.png" alt="3v 사진없음"></td>
                 <td><img src="455.png" alt="사진없음"></td>
             </tr>
-            </tbody>
+          </tbody> //수정
         </table>
         <p align="center">
             <b> Python </b> <br> 로또 생성기 프로그램, 애스터로이드 게임 제작 프로젝트 <br>
-            <b> C language </b> <br> 서로소 판별 프로그램, 좌석 예약 프로그램(ID-PW 체크 후 로그인 기능 포함) <br>
+            <b> C language </b> <br> 술 취한 사람 길찾기 게임 프로젝트, 좌석 예약 프로그램(ID-PW 체크 후 로그인 기능 포함) <br>
             <b> C++ </b> <br> 아직 안배움 .. <br>
             <b> Java </b> <br> 학생성적 처리 프로그램, BOOK 관리 프로그램, 대학 구성원 관리 프로그램, 회원관리 프로그램<br>
-            <b> HTML,CSS,JavaScript </b> <br> 빅데이터 정보 사이트 제작 프로젝트, 포트폴리오 웹 제작 프로젝트<br>
-            <b> Machine Learning </b> <br> 장애물 탐지 프로젝트, 사용자 광고 추천 프로젝트, Open-Gym과 DQN을 이용한 카트폴 게임<br>
+            <b> HTML, CSS, JavaScript </b> <br> 빅데이터 정보 사이트 제작 프로젝트, 포트폴리오 웹 제작 프로젝트<br>
+            <b> Data Structure </b> <br> <br>
+            <b> Algorithm </b> <br> <br>
+            <b> Linux Ubuntu </b> <br> <br>
+            <b> AI (Machine Learning) </b> <br> 장애물 탐지 프로젝트, 사용자 광고 추천 프로젝트, Open-Gym과 DQN을 이용한 카트폴 게임<br>
             <b> Windows server </b> <br> 서버 구축 프로젝트(IIS 설치 및 FTP 서버 구축, SSH 서버 구축, DNS 서버 구축, RAID 구축)<br>
             <b> Cryptography </b> <br> 파이썬을 이용한 RSA 구현 프로젝트, c언어를 이용한 DES 구현 프로젝트<br>
         </p>
@@ -192,7 +258,7 @@
     </article>
 
 </section>
-
+<footer>
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -213,6 +279,13 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
+    <h3> <br>＊더 궁금한 내용이 있다면 검색해보세요＊<br></h3>
+    <form name="sform" action="https://search.naver.com/search.naver" method="get">
+        <input name="query" type="text">
+        <input type="submit" value="검색">
+        <h3> <br> </h3>
+    </form>
+</footer>
 <p> Copyright 2022 by Park Seo Yeon </p>
 </body>
 </html>
