@@ -7,8 +7,8 @@ header {float: right; width:83%; height:25%; margin-top:20px; overflow: visible;
     background-color:#f9fdff; border-radius:20px;}
 
 .menubar {position:fixed; text-align:center;
-    width:15%; height: 355px; bottom : 60%; overflow:visible;
-    margin-left:5px;
+    width:15%; height: 355px; overflow:visible;
+    margin-top:20px; margin-left:5px;
     background-color:#f0ffff; border-radius:20px;}
 
 ul {font-weight:bold; margin:5px; padding-left:10px;
