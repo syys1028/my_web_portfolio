@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>숫자 맞추기 게임</title>
+  <link href="gamecss.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<script>
+			function first_span() {
+					let first = document.getElementById("first");
+					let num = Math.floor(Math.random()*3+1);
+					first.innerHTML = num;
+			}
+			function second_span() {
+					let second = document.getElementById("second");
+					let num = Math.floor(Math.random() * 3+1);
+					second.innerHTML = num;
+			}
+			function third_span() {
+					let third = document.getElementById("third");
+					let num = Math.floor(Math.random() * 3+1);
+					third.innerHTML = num;
+
+					if(first.innerHTML == second.innerHTML && second.innerHTML == third.innerHTML) {
+							let rs1 = document.getElementById("result");
+							rs1.innerHTML = "성공! (다시 하려면 클릭하세요.)";
+					}
+					else {
+							let rs2 = document.getElementById("result");
+							rs2.innerHTML = "실패 (다시 하려면 클릭하세요.)";
+					}
+			}
+			function again() {
+					document.getElementById("result").innerHTML = " ";
+					document.getElementById("first").innerHTML = 0;
+					document.getElementById("second").innerHTML = 0;
+					document.getElementById("third").innerHTML = 0;
+			}
+	</script>
+	<h3>숫자 맞추기 게임</h3>
+	<p>숫자를 차례로 클릭하면 1에서 3 사이의 난수로 바뀝니다.
+			모두 같은 수가 나오면 승리합니다. 행운을 시험하세요!
+	</p>
+	<hr>
+	<div id = "box">
+			<span id="first" onclick = "first_span()">0</span>
+			<span id="second" onclick = "second_span()">0</span>
+			<span id="third" onclick = "third_span()">0</span>
+	</div>
+	<div id = "result" onclick = "again()"></div>
+</body>
+</html>

@@ -6,65 +6,55 @@
     <link href="mycss.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+  <audio src="media/music1.mp3", style="float: right; height:28px;" autoplay loop controls></audio>
   <script>  // 방문 시간에 따라 방문한 초가 홀수면 배경색 blue, 짝수면 배경색 mint
-  	let current = new Date(); // 현재 시간 값을 가진 Date 객체 생성
+  	let current = new Date();
   	if(current.getSeconds() % 2 == 0)
-  		document.body.style.backgroundColor = "#AFEEEE";
-
+  		document.body.style.background = 'linear-gradient(#AFEEEE, #76C3D2)';
   	document.write("방문 시간 : ");
   	document.write(current.getHours(), "시");
   	document.write(current.getMinutes(), "분");
   	document.write(current.getSeconds(), "초");
   </script>
-  <script>
-    function nightDayHandler(self){
+  <script>   // 버튼 클릭 시 night모드와 day 모드 변경
+    function darkLight(self){
       var target1 = document.querySelector('body');
       var target2 = document.querySelector('header');
       var target3 = document.querySelector('ul');
       var target4 = document.querySelector('nav');
       var target5 = document.querySelector('section');
-      var target6 = document.querySelector('footer');
-      if(self.value === 'night'){
-        target1.style.backgroundColor = 'black';
+      var target6 = document.querySelector('nav2');
+      if(self.value === 'dark'){
+        target1.style.background = 'black';
         target2.style.backgroundColor = '#474952';
         target3.style.backgroundColor = '#747583';
         target4.style.backgroundColor = '#343649';
         target5.style.backgroundColor = '#212223';
-        target6.style.backgroundColor = '#555562';
+        target6.style.backgroundColor = '#808080';
         target1.style.color = 'white';
-        self.value = 'day';
-
+        self.value = 'light';
       }
       else{
-        target1.style.backgroundColor = '#D2E1FF';
+        target1.style.background = 'linear-gradient(#D2E1FF, #7E9EDE)';
         target2.style.backgroundColor = '#f9fdff';
         target3.style.backgroundColor = '#DCE2F0';
         target4.style.backgroundColor = '#f0ffff';
         target5.style.backgroundColor = '#FFFFFF';
-        target6.style.backgroundColor = '#DCE2F0';
+        target6.style.backgroundColor = '#F3FFEC';
         target1.style.color = 'black';
-        self.value = 'night';
+        self.value = 'dark';
       }
     }
   </script>
   <h0> , 배경색 변경하기 </h0>
-  <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+  <input id="night_day" type="button" value="dark" onclick="darkLight(this);">
+
 <header>
     <h1> &nbsp; PORTFOLIO </h1>
-    <article>
-      <table>
-          <tbody>
-          <div>
-              <div>
-                <div style="float: left">
-                <img src="cat.jpg", style="width:400px; height:250px; margin-left:100px; margin-bottom:20px",></div>
-              <div align="center", style="margin-right:150px"> 이름 : 박서연 / 영문: PARK SEO YEON<br> 직업 : 개발자, 프로그래머 <br> 좌우명 : Once you choose hope, anything is possible. <br> 성별 : 여 / 나이 : 23 <br> 연락처 : 010-****-**** <br>
-              이메일 : syys10280@naver.com <br> 주소 : 전북 군산 나운동 <br> 학력 : ㅇㅇ대학교 정보보안학과 2학년 편입 <br>&nbsp; 군산대학교 컴퓨터정보공학부 3학년 재학중</div>
-          </div>
-          </tbody>
-      </table>
-
-    </article>
+    <div style="float: left"><img src="media/cat.jpg", style="width:400px; height:250px; margin-left:100px; margin-bottom:20px",></div>
+    <div align="center", style="margin-right:150px"> 이름 : 박서연 / 영문: PARK SEO YEON<br> 직업 : 개발자, 프로그래머 <br> 좌우명 : Once you choose hope, anything is possible. <br> 성별 : 여 / 나이 : 23 <br> 연락처 : 010-****-**** <br>
+    이메일 : syys10280@naver.com <br> 주소 : 전북 군산 나운동 <br> 학력 : ㅇㅇ대학교 정보보안학과 2학년 편입 <br>&nbsp; 군산대학교 컴퓨터정보공학부 3학년 재학중</div>
+    </div>
 </header>
 
 <nav class="menubar">
@@ -79,39 +69,68 @@
         <li><a href="#Self Introducti­on"> Self Introducti­on </a></li>
     </ul>
 </nav>
-<nav class="copy">
-    <h2>Contents</h2>
-    <ul>
-        <li><a href="#Programming"> Programming </a></li>
-        <li><a href="#Project"> Project </a></li>
-        <li><a href="#Certificate"> Certificate </a></li>
-        <li><a href="#Language Ability"> Language Ability </a></li>
-        <li><a href="#Club"> Club </a></li>
-        <li><a href="#International Activity"> International Activity </a></li>
-        <li><a href="#Self Introducti­on"> Self Introducti­on </a></li>
-    </ul>
-</nav>
-<script>
+<nav2 class="link">
+    <h2> * 참고 *</h2>
+    <h3>1. 인터넷 바로가기</h3>
+    <select name="none" onchange="window.open(value,'_blank');">
+      <option value="none" >사이트 바로가기</option>
+      <option value="https://www.kunsan.ac.kr">군산대학교</option>
+      <option value="http://www.google.com">구글</option>
+      <option value="http://www.naver.com">네이버</option>
+      <option value="http://www.daum.net">다음</option>
+    </select>
+    <h3> 2. 숫자 미니게임</h3>
+    <b><a href="game.html" target="_blank"> 게임 링크 바로가기 </a></b>
+
+</nav2>
+<script>  // 클릭하여 이미지 변경하기
 // 미리 로딩해 둘 8개의 이미지 파일 이름 배열
-let files = ["media/Penguins.png",                                // 사진넣기
-             "media/Lighthouse.png",
-             "media/Chrysanthemum.png",
-             "media/Desert.png",
-             "media/Hydrangeas.png",
-             "media/Jellyfish.png",
-             "media/Koala.png",
-             "media/Tulips.png"];
-let imgs = new Array(); // 이미지 객체를 저장할 배열
-for(let i=0; i<files.length; i++) {
-	imgs[i] = new Image(); // 이미지 객체 생성
-	imgs[i].src = files[i]; // 이미지 로딩 지시
+let program_files = ["media/py.png",                                // 사진넣기
+             "media/c1.png",
+             "media/c2.png",
+             "media/java.png",
+             "media/web.png",
+             "media/img1.png",
+             "media/img2.png",
+             "media/algo1.png",
+             "media/algo2.png",
+             "media/linux.png",
+             "media/ai0.png",
+             "media/ai1.jpg",
+             "media/ai2.png",
+             "media/game.png",
+             "media/dns.png",
+             "media/rsa.png"];
+let art_files = ["media/1.png",                                // 사진넣기
+             "media/2.png",
+             "media/3.png",
+             "media/4.jpg",
+             "media/5.png",
+             "media/6.png",
+             "media/7.png",
+             "media/8.png"];
+let imgs1 = new Array(); // 이미지 객체를 저장할 배열
+for(let i=0; i<program_files.length; i++) {
+	imgs1[i] = new Image(); // 이미지 객체 생성
+	imgs1[i].src = program_files[i]; // 이미지 로딩 지시
+}
+let next1 = 1;
+function changeP(img) { // 다음 이미지 출력
+	img.src = imgs1[next1].src; // 이미지 변경
+	next1++; // 다음 이미지에 대한 인덱스
+	next1 %= imgs1.length; // 개수를 넘으면 처음으로
 }
 
-let next = 1;
-function change(img) { // 다음 이미지 출력
-	img.src = imgs[next].src; // 이미지 변경
-	next++; // 다음 이미지에 대한 인덱스
-	next %= imgs.length; // 개수를 넘으면 처음으로
+let imgs2 = new Array();
+for(let i=0; i<art_files.length; i++) {
+	imgs2[i] = new Image(); // 이미지 객체 생성
+	imgs2[i].src = art_files[i]; // 이미지 로딩 지시
+}
+let next2 = 1;
+function changeA(img) {
+	img.src = imgs2[next2].src;
+	next2++;
+	next2 %= imgs2.length;
 }
 </script>
 <section>
@@ -120,14 +139,8 @@ function change(img) { // 다음 이미지 출력
             <a target="_blank">프로그래밍 과목 소개(programming)</a>
         </h2>
         <p align="center"> Language : Python / C / C++ / Java / HTML, CSS, JavaScript </p>
-        <p align="center"> Programming : Data Structure / Algorithm / Linux Ubuntu / AI (Machine Learning) / Window Server / Cryptography </p>
-        <table>
-            <tbody>
-            <tr>
-                <div class="container"><img src="111.jpg" alt="picture1 사진없음"></div>
-            </tr>
-            </tbody>
-        </table>
+        <p align="center"> Programming : Image Processing / Algorithm / Linux Ubuntu / AI (Machine Learning) / Window Server / Cryptography </p>
+        <div class="container"><img src="media/main.jpg" alt="picture1 사진없음"></div>
         <br>
     </article>
 
@@ -135,23 +148,17 @@ function change(img) { // 다음 이미지 출력
         <h2 id="Project">
             <a target="_blank">프로젝트 소개(Project)</a>
         </h2>
-        <table> // 이부분 지우기
-            <tbody>
-            <tr>
-                <td><img src="22.png" alt="3v 사진없음"></td>
-                <td><img src="455.png" alt="사진없음"></td>
-            </tr>
-          </tbody> //수정
-        </table>
+          <p align="center"><이미지를 클릭하면 다음 사진으로 넘어갑니다.></p>
+          <div style="text-align : center;"><img style="border:20px ridge wheat" src="media/py.png" alt="." width="800" height="450" onclick="changeP(this)"></div>
         <p align="center">
             <b> Python </b> <br> 로또 생성기 프로그램, 애스터로이드 게임 제작 프로젝트 <br>
             <b> C language </b> <br> 술 취한 사람 길찾기 게임 프로젝트, 좌석 예약 프로그램(ID-PW 체크 후 로그인 기능 포함) <br>
             <b> C++ </b> <br> 아직 안배움 .. <br>
             <b> Java </b> <br> 학생성적 처리 프로그램, BOOK 관리 프로그램, 대학 구성원 관리 프로그램, 회원관리 프로그램<br>
             <b> HTML, CSS, JavaScript </b> <br> 빅데이터 정보 사이트 제작 프로젝트, 포트폴리오 웹 제작 프로젝트<br>
-            <b> Data Structure </b> <br> <br>
-            <b> Algorithm </b> <br> <br>
-            <b> Linux Ubuntu </b> <br> <br>
+            <b> Image Processing </b> <br> 이미지 경계선 검출 프로그램, 이미지 선명화 프로그램 <br>
+            <b> Algorithm </b> <br> 2개의 스택으로 큐 구현 프로그램, Quick sort 구현 프로그램 <br>
+            <b> Linux Ubuntu </b> <br> 파일기반 도서 관리 프로그램 <br>
             <b> AI (Machine Learning) </b> <br> 장애물 탐지 프로젝트, 사용자 광고 추천 프로젝트, Open-Gym과 DQN을 이용한 카트폴 게임<br>
             <b> Windows server </b> <br> 서버 구축 프로젝트(IIS 설치 및 FTP 서버 구축, SSH 서버 구축, DNS 서버 구축, RAID 구축)<br>
             <b> Cryptography </b> <br> 파이썬을 이용한 RSA 구현 프로젝트, c언어를 이용한 DES 구현 프로젝트<br>
@@ -163,11 +170,8 @@ function change(img) { // 다음 이미지 출력
         <h2 id="Certificate">
             <a href="http://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320" target="_blank">자격증(Certificate)</a>
         </h2>
-
         <p>
-          <tr>
-            <div style="text-align : center;"><img src="자격증 사진.jpg" alt="사진없음"></div>
-          </tr>
+          <div style="text-align : center;"><img src="자격증 사진.jpg" alt="사진없음"></div>
           <br>
           <table border="1"; align="center";>
             <th>&nbsp; 취득 날짜 &nbsp;</th>
@@ -198,9 +202,7 @@ function change(img) { // 다음 이미지 출력
             <a href="https://www.samsungsds.com/kr/insights/1232584_4627.html" target="_blank">어학 능력(Language Ability)</a>
         </h2>
         <p>
-          <tr>
-            <div style="text-align : center;"><img src="444.png" alt="사진없음"></div>
-          </tr>
+          <div style="text-align : center;"><img src="media/toeic.jpg" alt="사진없음"></div>
           <table border="1"; align="center";>
             <th>&nbsp; 어학능력 종류 &nbsp;</th>
             <th> &nbsp; 취득 날짜 &nbsp;</th>
@@ -208,19 +210,19 @@ function change(img) { // 다음 이미지 출력
             <th> &nbsp; 취득 기관 &nbsp;</th>
             <tr>
               <td> &nbsp; TOEIC &nbsp;</td>
-              <td> &nbsp; 2021.11.21 &nbsp;</td>
-              <td> &nbsp; 615점 &nbsp;</td>
+              <td> &nbsp; 2023.01.01 &nbsp;</td>
+              <td> &nbsp; 000점 &nbsp;</td>
               <td> &nbsp; ETS &nbsp;</td>
             </tr>
             <tr>
               <td> &nbsp; TOEIC Speaking &nbsp;</td>
-              <td> &nbsp; 2021.03.03 &nbsp;</td>
+              <td> &nbsp; 2023.01.01 &nbsp;</td>
               <td> &nbsp; 000점 &nbsp;</td>
               <td> &nbsp; ETS &nbsp;</td>
             </tr>
             <tr>
               <td> &nbsp; TOEFL &nbsp;</td>
-              <td> &nbsp; 2021.03.03 &nbsp;</td>
+              <td> &nbsp; 2023.01.01 &nbsp;</td>
               <td> &nbsp; 000점 &nbsp;</td>
               <td> &nbsp; ETS &nbsp;</td>
             </tr>
@@ -234,13 +236,7 @@ function change(img) { // 다음 이미지 출력
         <h2 id="Club">
             <a href="http://www.동아리 홈페이지 하이퍼링크 연결" target="_blank">동아리(Club)</a>
         </h2>
-        <table>
-            <tbody>
-            <tr>
-                <div style="text-align : center;"><img src="동아리사진.jpg" alt="사진없음"></div>
-            </tr>
-            </tbody>
-        </table>
+        <div style="text-align : center;"><img src="동아리사진.jpg" alt="사진없음"></div>
         <p align="center">
             동아리 이름 : ㅇㅇㅇ <br> 동아리 연혁 : 2020.03.02 ~ <br> 동아리 활동 내역 :
         </p>
@@ -261,7 +257,8 @@ function change(img) { // 다음 이미지 출력
         <h2 id="Self Introducti­on">
             <a>자기 소개(Self Introducti­on)</a>
         </h2>
-        <div style="text-align : center;"><img src="333.png" alt="사진없음"></div>
+        <p align="center"><이미지를 클릭하면 다음 사진으로 넘어갑니다.></p>
+        <div style="text-align : center;"><img style="border:20px ridge wheat" src="media/1.png" alt="." width="800" height="450" onclick="changeA(this)"></div>
         <p align="center">
           <b> 취미 </b> : 그림 따라그리기, 게임 분석하며 플레이하기, 요리하기 <br>
           <b> 성격 </b> : MBTI - INFJ / 성실함, 겸손함, 창의적, 열정적 <br>
@@ -274,7 +271,7 @@ function change(img) { // 다음 이미지 출력
 
 <footer>
 <div id="disqus_thread"></div>
-<script>
+<script>  //
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
@@ -291,13 +288,6 @@ function change(img) { // 다음 이미지 출력
     (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <h3> <br>＊궁금한 내용이 있다면 바로 인터넷에 검색해보세요.＊<br></h3>
-    <form name="sform" action="https://search.naver.com/search.naver" method="get">
-        <input name="query" type="text">
-        <input type="submit" value="검색">
-        <h3> <br> </h3>
-    </form>
 </footer>
 <p> Copyright 2022 by Park Seo Yeon </p>
 </body>
